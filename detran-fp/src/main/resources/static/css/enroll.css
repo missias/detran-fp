@@ -1,0 +1,100 @@
+@CHARSET "ISO-8859-1";
+
+/* #00afef; */
+
+#hcontainer {
+	height: 520px;
+	width:937px;
+}
+
+.left-thumb {
+    position: relative;
+    top: -283px;
+    left: 384px;
+    color:#00afef;
+    display: block;
+    width:60px;
+}
+
+.left-pointer-finger {
+    position: relative;
+    top: -544px;
+    left: 316px;
+    color:#00afef;
+    display: block;
+    width:60px;
+}
+
+
+.left-middle-finger {
+	position: relative;
+	top: -663px;
+	left: 205px;
+	color:#00afef;
+	display: block;
+	width:60px;
+}
+
+.left-ring-finger {
+	position: relative;
+	top: -694px;
+	left: 81px;
+	color:#00afef;
+	display: block;
+	width:60px;
+}
+.left-little-finger {
+	position: relative;
+	top: -685px;
+	left: 2px;
+	color:#00afef;
+	display: block;
+	width:60px;
+}
+
+.rigth-thumb {
+	position: relative;
+	top: -633px;
+	left: 493px;
+	color: #00afef;
+	display: block;
+	width:60px;
+}
+
+.rigth-pointer-finger {
+	position: relative;
+	top: -894px;
+	left: 561px;
+	color:#00afef;
+	display: block;
+	width:60px;
+}
+
+.rigth-middle-finger {
+	position: relative;
+	top: -1015px;
+	left: 672px;
+	color:#00afef;
+	display: block;
+	width:60px;
+}
+
+.rigth-ring-finger {
+	position: relative;
+	top: -1045px;
+	left: 795px;
+	color:#00afef;
+	display: block;
+	width:60px;
+}
+
+.rigth-little-finger {
+	 position: relative;
+	 top: -1036px;
+	 left: 876px;
+	 color:#00afef;
+	 display: block;
+	 width:60px;
+}
+
+

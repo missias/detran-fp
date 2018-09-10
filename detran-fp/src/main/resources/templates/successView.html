@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/wizard-form :: header">
+</head>
+<body>
+
+	<div class="container">
+
+		<ul class="nav nav-wizard">
+			<li><a href="#">Bem vindo</a></li>
+			<li ><a href="#">Registro</a></li>
+			<li class="active"><a href="#">Confirmar</a></li>
+		</ul>
+
+		<!-- Path to fragment is hard-coded in every usage -->
+		<!-- Need to specify th:remove to make sure the tag is actually replaced -->
+		<div layout:include="fragments/wizard-form :: wizard-form('wizardForm', 'wellcome', 'wellcome')"
+			th:remove="tag">
+			<div layout:fragment="content">
+
+                  <h1 class="bd-title" id="content">....</h1>
+
+			</div>
+		</div>
+
+
+	<div class="control-group">
+		<div class="controls">
+			<div >
+
+				<div th:switch="${cancel}">
+					<div th:case="''"></div>
+				</div>
+				<a class="btn btn-danger bt-sm"
+					th:href="@{cadastro(_step=submitCancel)}"
+					onclick="return confirm('cancel')" title="Cancelar"> <span>Cancelar</span>
+
+				</a> <a class="btn btn-warning"
+					th:href="@{cadastro(_step=1)}"
+					title="Anterior"> <span>Anterior</span>
+				</a>
+
+				<a class="btn btn-success"
+					th:href="@{cadastro(_step=3)}"
+					title="Proximo" > <span>Proximo</span>
+				</a>
+
+
+			</div>
+		</div>
+	</div>
+
+
+
+	</div>
+
+</body>
+</html>

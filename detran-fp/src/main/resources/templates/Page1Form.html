@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="fragments/wizard-form :: header">
+
+
+
+
+
+
+</head>
+<body>
+
+	<div class="container">
+
+		<ul class="nav nav-wizard">
+			<li><a href="#">Bem vindo</a></li>
+			<li class="active"><a href="#">Registro</a></li>
+			<li><a href="#">Confirmar</a></li>
+		</ul>
+
+		<!-- Path to fragment is hard-coded in every usage -->
+		<!-- Need to specify th:remove to make sure the tag is actually replaced -->
+		<div layout:include="fragments/wizard-form :: wizard-form('wizardForm', 'wellcome', 'wellcome')"
+			th:remove="tag">
+			<div layout:fragment="content">
+
+                  <h1 class="bd-title" id="content">Registro de digitais</h1>
+
+<div id="hcontainer">
+
+    <img src="img/hands-2.png"  width="937" height="520" />
+
+    <!-- LEFT -->
+
+    <div class="left-thumb far fa-circle fa-5x">
+    </div>
+
+    <div class="left-pointer-finger  far fa-circle fa-5x" >
+
+    </div>
+
+    <div class="left-middle-finger far fa-circle fa-5x" >
+
+    </div>
+
+    <div class="left-ring-finger far fa-circle fa-5x" >
+
+    </div>
+
+    <div class="left-little-finger far fa-circle fa-5x" >
+
+    </div>
+
+    <!-- RIGTH -->
+
+    <div class="rigth-thumb  far fa-circle fa-5x" >
+
+    </div>
+
+    <div class="rigth-pointer-finger  far fa-circle fa-5x" >
+
+    </div>
+
+    <div class="rigth-middle-finger  far fa-circle fa-5x" >
+
+    </div>
+
+    <div class="rigth-ring-finger  far fa-circle fa-5x" >
+
+    </div>
+
+    <div class="rigth-little-finger  far fa-circle fa-5x" >
+
+    </div>
+
+</div>
+
+<div class="row">
+<span><i class="far fa-circle" aria-hidden="true" style="color:#00afef"></i>Falta capturar</span>
+<span><i class="fa fa-circle" aria-hidden="true" style="color:#01DF01"></i>Capturado</span>
+<span><i class="fa fa-circle" aria-hidden="true" style="color:#FE2E2E"></i>Erro na Captura</span>
+
+</div>
+
+<h3 class="bd-title" id="content">Selecione o dedo que voce deseja cadastrar clicando na imagem do dedo correspondente.</h3>
+
+			</div>
+		</div>
+
+	<div class="control-group">
+		<div class="controls">
+			<div >
+
+				<div th:switch="${cancel}">
+					<div th:case="''"></div>
+				</div>
+				<a class="btn btn-danger bt-sm"
+					th:href="@{cadastro(_step=submitCancel)}"
+					onclick="return confirm('cancel')" title="Cancelar"> <span>Cancelar</span>
+
+				</a> <a class="btn btn-warning"
+					th:href="@{cadastro(_step=0)}"
+					title="Anterior"> <span>Anterior</span>
+				</a>
+<!--
+<button type="button" id="nextButton" onclick="@{cadastro(_step=2)}" data-loading-text="Aguarde..." class="btn btn-success" >
+ <span>Proximo</span>
+</button>
+ -->
+			<a class="btn btn-success" id="nextButton"
+					th:href="@{cadastro(_step=2)}"
+					title="Proximo" > <span>Proximo</span>
+				</a>
+
+
+			</div>
+		</div>
+	</div>
+
+<script>
+$('#nextButton').on('click', function () {
+	// getEnrolledFpsLeftHand();
+
+})
+</script>
+
+
+
+<!-- MODAL CAPTURA BIO-->
+
+<div id="modal-leitor-biometrico" class="modal fade" role="dialog">
+<div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title">Favor coloque a digital no leitor biometrico.</h4>
+    </div>
+
+    <div class="modal-body">
+
+
+
+
+	<!--pequenas imagens-->
+	<div class="row" style="padding-top: 30px;">
+		<div class="col-md-6  col-md-5">
+			<div class="panel-padrao box box-primary">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-9">
+							<img id="fp1" src="img/modal-enroll/do-scan.gif" style="padding-left: 30px;"/>
+							<div class="row" style="padding-left: 65px; padding-top: 10px;">
+								<label>1o Digitalizacao </label>
+							</div>
+						</div>
+					</div>
+
+					<hr id="separador"></hr>
+
+					<div class="row" style="padding-top: 20px;">
+						<div class="col-md-9">
+							<img  id="fp2" src="img/modal-enroll/fp-lack.png" style="padding-left: 30px;"/>
+							<div class="row" style="padding-left: 35px; padding-top: 10px;">
+								<label style="padding-left: 30px;">2o Digitalizacao</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--imagem grande-->
+		<div class="col-md-6">
+			<div class="panel-padrao box box-primary" style="height:330px;">
+				<div class="row" style="padding-bottom: 10px">
+					<div class="panel-heading"><h4 style="color: blue; text-align: center;">Pressione o dedo no leitor</h4></div>
+				</div>
+				<div>
+					<img src="img/modal-enroll/fp-on-scanner.png" style="width: 50%; position: relative; top: 0px; bottom: 0px; left: 60px; right: 10px;"/>
+				</div>
+				<div class="row" style="padding-top: 20px">
+					<div class="panel-heading"><h5 style="text-align: center; padding-top: 20px;">Aguarde a digitalizacao da mesma digital pela segunda vez. </h5></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- end-->
+    </div>
+    <div class="modal-footer">
+      <input data-dismiss="modal"  type="submit"   value="Fechar" class="btn btn-warning "/>
+    </div>
+</div>
+
+</div>
+</div>
+
+<!-- MODAL EXCLUIR CAPTURA -->
+
+<!-- Modal -->
+<div class="modal fade" id="excluirCapturaModal" tabindex="-1" role="dialog" aria-labelledby="excluirCapturaModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="excluirCapturaModalLabel">Confirmação</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Deseja excluir a digital capturada?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal"   id="cancel-delete-button">Não</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"   id="confirm-delete-button">Sim</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+	</div>
+
+</body>
+</html>
